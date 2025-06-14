@@ -1,6 +1,9 @@
 
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,18 +22,18 @@
             color: #333;
         }
         .quiz-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Responsive width */
-            /* Original 600px + 4cm (약 151px): 600px + 151px = 751px */
-            max-width: 751px;
-            text-align: center;
-            box-sizing: border-box;
-            position: relative;
-        }
-        h1 {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Responsive width */
+        /* Increased max-width */
+        max-width: 801px;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        
+            h1 {
             color: #2c3e50;
             margin-bottom: 20px;
             font-size: 1.8em;
