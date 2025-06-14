@@ -1,5 +1,7 @@
 
 
+감염병 예방 퀴즈
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -24,7 +26,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 90%;
-            max-width: 600px;
+            /* 10cm (약 378px) 추가: 600px + 378px = 978px */
+            max-width: 978px; 
             text-align: center;
             box-sizing: border-box;
             position: relative;
@@ -32,11 +35,13 @@
         h1 {
             color: #2c3e50;
             margin-bottom: 20px;
-            font-size: 1.8em;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 2.16em; /* 1.8 * 1.2 */
         }
         .question-area {
             margin-bottom: 25px;
-            font-size: 1.2em;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.44em; /* 1.2 * 1.2 */
             line-height: 1.5;
             min-height: 80px;
             display: flex;
@@ -58,11 +63,12 @@
             border-radius: 5px;
             padding: 10px 15px;
             cursor: pointer;
-            font-size: 1.1em;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.32em; /* 1.1 * 1.2 */
             transition: background-color 0.2s, transform 0.2s;
             user-select: none;
-            width: 45px;
-            height: 45px;
+            width: 54px; /* 기존 45px * 1.2 */
+            height: 54px; /* 기존 45px * 1.2 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -89,9 +95,10 @@
             border: 1px dashed #bbb;
             border-radius: 5px;
             padding: 10px 15px;
-            font-size: 1.1em;
-            min-width: 45px;
-            height: 45px;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.32em; /* 1.1 * 1.2 */
+            min-width: 54px; /* 기존 45px * 1.2 */
+            height: 54px; /* 기존 45px * 1.2 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -99,11 +106,10 @@
             cursor: pointer;
         }
         .answer-input .answer-box.filled {
-            background-color: #dbeaff; /* 채워진 네모칸의 배경색 */
-            border-color: #92bdfa; /* 채워진 네모칸의 테두리 색 */
+            background-color: #dbeaff; 
+            border-color: #92bdfa; 
             color: #333;
         }
-        /* 새 CSS: 비활성화된 네모 칸 스타일 */
         .answer-input .answer-box.disabled {
             background-color: #dddddd;
             border-color: #aaaaaa;
@@ -119,8 +125,9 @@
             gap: 15px;
         }
         button {
-            padding: 12px 25px;
-            font-size: 1em;
+            padding: 14px 30px; /* 버튼 패딩 증가 */
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.2em; /* 1.0 * 1.2 */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -143,26 +150,24 @@
             background-color: #025aa5;
             transform: translateY(-1px);
         }
-        /* 새로 추가된 초기화 버튼 스타일 */
         button.clear-input {
-            background-color: #ffc107; /* 주황색 계열 */
+            background-color: #ffc107; 
             color: white;
         }
         button.clear-input:hover {
             background-color: #e0a800;
             transform: translateY(-1px);
         }
-
-        /* 추가된 다시 시작 버튼 스타일 */
         button.restart-quiz {
-            background-color: #6c757d; /* 회색 계열로 변경 */
+            background-color: #6c757d; 
             color: white;
-            margin-top: 20px; /* 위쪽 여백 추가 */
-            display: block; /* 블록 요소로 만들어 중앙 정렬 용이하게 함 */
-            margin-left: auto; /* 자동 여백으로 중앙 정렬 */
-            margin-right: auto; /* 자동 여백으로 중앙 정렬 */
-            padding: 15px 30px; /* 버튼 크기 키움 */
-            font-size: 1.2em; /* 폰트 크기 키움 */
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 18px 36px; /* 버튼 크기 키움 */
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.44em; /* 1.2 * 1.2 */
         }
         button.restart-quiz:hover {
             background-color: #5a6268;
@@ -170,7 +175,8 @@
         }
         .result {
             margin-top: 20px;
-            font-size: 1.3em;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.56em; /* 1.3 * 1.2 */
             font-weight: bold;
             min-height: 30px;
         }
@@ -188,7 +194,8 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
             color: white;
-            font-size: 2em;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 2.4em; /* 2.0 * 1.2 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -198,8 +205,9 @@
         }
         .start-screen button {
             margin-top: 20px;
-            padding: 15px 30px;
-            font-size: 1.5em;
+            padding: 18px 36px; /* 패딩 증가 */
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.8em; /* 1.5 * 1.2 */
             background-color: #28a745;
             color: white;
             border: none;
@@ -211,19 +219,22 @@
         }
         .feedback-message {
             margin-top: 15px;
-            font-size: 1.1em;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.32em; /* 1.1 * 1.2 */
             color: #666;
             min-height: 25px;
         }
         .guidance-message {
-            font-size: 0.9em; /* 작게 설정 */
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.08em; /* 0.9 * 1.2 */
             color: #777;
             margin-top: 10px;
-            min-height: 1.2em; /* 문구가 없을 때도 공간 유지 */
+            min-height: 1.2em;
         }
         .final-results {
             margin-top: 30px;
-            font-size: 1.2em;
+            /* 폰트 크기 1.2배 증가 */
+            font-size: 1.44em; /* 1.2 * 1.2 */
             font-weight: bold;
             color: #2c3e50;
         }
@@ -232,7 +243,7 @@
             padding: 0;
             margin-top: 15px;
             text-align: left;
-            max-height: 200px;
+            max-height: 240px; /* 기존 200px * 1.2 */
             overflow-y: auto;
             border: 1px solid #eee;
             padding: 10px;
