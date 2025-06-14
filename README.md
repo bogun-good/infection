@@ -2,7 +2,7 @@
 
 
 
-감염병 예방 퀴즈
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,8 +26,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 90%;
-            /* 10cm (약 378px) + 6cm (약 226.8px) 추가: 600px + 378px + 227px = 1205px */
-            max-width: 1205px;
+            /* 10cm (약 378px) + 6cm (약 226.8px) + 5cm (약 189px) 추가: 600px + 378px + 227px + 189px = 1394px */
+            max-width: 1394px;
             text-align: center;
             box-sizing: border-box;
             position: relative;
