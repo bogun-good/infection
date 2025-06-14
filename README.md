@@ -1,8 +1,6 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -252,6 +250,17 @@
         .final-results .wrong-answer {
             color: #dc3545;
         }
+
+        .buttons {
+            white-space: nowrap;
+            flex-wrap: nowrap; /* 버튼이 다음 줄로 넘어가지 않도록 */
+        }
+
+       .buttons button {
+            white-space: nowrap;
+            min-width: max-content; /* 버튼 내부 글자 전체 표현을 위해 */
+       }
+
     </style>
 </head>
 <body>
