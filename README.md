@@ -2,7 +2,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,9 +24,8 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Responsive width */
-            /* 10cm (약 378px) + 6cm (약 226.8px): 600px + 378px + 227px = 1205px */
-            max-width: 1205px;
+            width: 90%;
+            max-width: 600px;
             text-align: center;
             box-sizing: border-box;
             position: relative;
@@ -35,11 +33,11 @@
         h1 {
             color: #2c3e50;
             margin-bottom: 20px;
-            font-size: 2.16em;
+            font-size: 1.8em;
         }
         .question-area {
             margin-bottom: 25px;
-            font-size: 1.44em;
+            font-size: 1.2em;
             line-height: 1.5;
             min-height: 80px;
             display: flex;
@@ -61,11 +59,11 @@
             border-radius: 5px;
             padding: 10px 15px;
             cursor: pointer;
-            font-size: 1.32em;
+            font-size: 1.1em;
             transition: background-color 0.2s, transform 0.2s;
             user-select: none;
-            width: 54px;
-            height: 54px;
+            width: 45px;
+            height: 45px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,9 +90,9 @@
             border: 1px dashed #bbb;
             border-radius: 5px;
             padding: 10px 15px;
-            font-size: 1.32em;
-            min-width: 54px;
-            height: 54px;
+            font-size: 1.1em;
+            min-width: 45px;
+            height: 45px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -102,10 +100,11 @@
             cursor: pointer;
         }
         .answer-input .answer-box.filled {
-            background-color: #dbeaff;
-            border-color: #92bdfa;
+            background-color: #dbeaff; /* 채워진 네모칸의 배경색 */
+            border-color: #92bdfa; /* 채워진 네모칸의 테두리 색 */
             color: #333;
         }
+        /* 새 CSS: 비활성화된 네모 칸 스타일 */
         .answer-input .answer-box.disabled {
             background-color: #dddddd;
             border-color: #aaaaaa;
@@ -121,8 +120,8 @@
             gap: 15px;
         }
         button {
-            padding: 14px 30px;
-            font-size: 1.2em;
+            padding: 12px 25px;
+            font-size: 1em;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -145,23 +144,26 @@
             background-color: #025aa5;
             transform: translateY(-1px);
         }
+        /* 새로 추가된 초기화 버튼 스타일 */
         button.clear-input {
-            background-color: #ffc107;
+            background-color: #ffc107; /* 주황색 계열 */
             color: white;
         }
         button.clear-input:hover {
             background-color: #e0a800;
             transform: translateY(-1px);
         }
+
+        /* 추가된 다시 시작 버튼 스타일 */
         button.restart-quiz {
-            background-color: #6c757d;
+            background-color: #6c757d; /* 회색 계열로 변경 */
             color: white;
-            margin-top: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 18px 36px;
-            font-size: 1.44em;
+            margin-top: 20px; /* 위쪽 여백 추가 */
+            display: block; /* 블록 요소로 만들어 중앙 정렬 용이하게 함 */
+            margin-left: auto; /* 자동 여백으로 중앙 정렬 */
+            margin-right: auto; /* 자동 여백으로 중앙 정렬 */
+            padding: 15px 30px; /* 버튼 크기 키움 */
+            font-size: 1.2em; /* 폰트 크기 키움 */
         }
         button.restart-quiz:hover {
             background-color: #5a6268;
@@ -169,7 +171,7 @@
         }
         .result {
             margin-top: 20px;
-            font-size: 1.56em;
+            font-size: 1.3em;
             font-weight: bold;
             min-height: 30px;
         }
@@ -187,7 +189,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
             color: white;
-            font-size: 2.4em;
+            font-size: 2em;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -197,8 +199,8 @@
         }
         .start-screen button {
             margin-top: 20px;
-            padding: 18px 36px;
-            font-size: 1.8em;
+            padding: 15px 30px;
+            font-size: 1.5em;
             background-color: #28a745;
             color: white;
             border: none;
@@ -210,19 +212,19 @@
         }
         .feedback-message {
             margin-top: 15px;
-            font-size: 1.32em;
+            font-size: 1.1em;
             color: #666;
             min-height: 25px;
         }
         .guidance-message {
-            font-size: 1.08em;
+            font-size: 0.9em; /* 작게 설정 */
             color: #777;
             margin-top: 10px;
-            min-height: 1.2em;
+            min-height: 1.2em; /* 문구가 없을 때도 공간 유지 */
         }
         .final-results {
             margin-top: 30px;
-            font-size: 1.44em;
+            font-size: 1.2em;
             font-weight: bold;
             color: #2c3e50;
         }
@@ -231,7 +233,7 @@
             padding: 0;
             margin-top: 15px;
             text-align: left;
-            max-height: 240px;
+            max-height: 200px;
             overflow-y: auto;
             border: 1px solid #eee;
             padding: 10px;
@@ -255,6 +257,7 @@
     </style>
 </head>
 <body>
+
     <div class="quiz-container">
         <div class="start-screen" id="startScreen">
             <h1>감염병 퀴즈</h1>
@@ -289,7 +292,7 @@
             <p>총 문제: <span id="totalQuestionsCount"></span></p>
             <p>맞춘 개수: <span id="correctAnswersCount"></span></p>
             <p>틀린 개수: <span id="wrongAnswersCount"></span></p>
-            <h3>전체 문제</h3>
+            <h3>전체 문제</h3> 
             <ul id="allQuestionsList"></ul>
             <button class="restart-quiz" id="restartQuizBtn">다시 시작</button>
         </div>
@@ -301,19 +304,22 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const quizData = [
-                {"question": "사람에게 전염되어 병을 옮기는 질병은 ?", "answer": "감염병", "scrambled": ["감", "염", "병", "구", "기"]},
-                {"question": "열, 기침, 몸살이 생기고 겨울에 많이 유행하는 감염병은?", "answer": "독감", "scrambled": ["독", "감", "열", "침"]},
-                {"question": "외출 후 병에 걸리지 않기 위해 꼭 해야 하는 위생 습관은?", "answer": "손씻기", "scrambled": ["손", "씻", "기", "생"]},
+                // Moved questions from original indices 10, 11, 12 to the beginning (0, 1, 2)
+                {"question": "사람에게 전염되어 병을 옮기는 질병은 ?", "answer": "감염병", "scrambled": ["감", "염", "병", "구", "기"]}, // Originally 11th (index 10)
+                {"question": "열, 기침, 몸살이 생기고 겨울에 많이 유행하는 감염병은?", "answer": "독감", "scrambled": ["독", "감", "열", "침"]}, // Originally 12th (index 11)
+                {"question": "외출 후 병에 걸리지 않기 위해 꼭 해야 하는 위생 습관은?", "answer": "손씻기", "scrambled": ["손", "씻", "기", "생"]}, // Originally 13th (index 12)
+                
+                // Remaining questions in their original relative order
                 {"question": "피부에 물집이 생기고 가려운 증상이 나타나는 전염성이 높은 감염병은?", "answer": "수두", "scrambled": ["수", "두", "부", "병"]},
                 {"question": "주로 폐에 감염이 생기고 미열, 오한, 기침이 오래 계속되는 병은?", "answer": "결핵", "scrambled": ["결", "핵", "병", "감"]},
                 {"question": "감염병을 일으키는 세균이나 바이러스 등을 무엇이라고 합니까?", "answer": "병원체", "scrambled": ["병", "원", "체", "독"]},
                 {"question": "병에 걸렸지만 아직 증상이 나타나지 않은 기간을 무엇이라고 합니까?", "answer": "잠복기", "scrambled": ["잠", "복", "기", "간"]},
                 {"question": "감염병에 걸리지 않도록 미리 면역이 생기게 하는 방법은 ?", "answer": "예방접종", "scrambled": ["예", "방", "접", "종"]},
-                {"question": "1일 8번 30초씩 손을 씻자라는 건강 실천 운동 이름은?", "answer": "1830운동", "scrambled": ["운", "1", "0", "동", "8", "3", "손"]},
+                {"question": "1일 8번 30초씩 손을 씻자라는 건강 실천 운동 이름은?", "answer": "1830운동", "scrambled": ["운", "1", "0", "동", "8", "3", "손"]}, 
                 {"question": "기침이나 재채기를 할 때 입과 코를 팔 안쪽으로 가리는 것을 무엇이라고 합니까?", "answer": "기침예절", "scrambled": ["기", "침", "예", "절"]},
                 {"question": "감염병이 유행할 때 입과 코를 가리는 데 사용하는 물건은?", "answer": "마스크", "scrambled": ["마", "스", "크", "입", "코"]},
                 {"question": "우리 몸이 병원체를 이겨내는 힘을 무엇이라고 합니까?", "answer": "면역", "scrambled": ["면", "역", "힘", "몸"]},
-                {"question": "독감이나 코로나 19는 신체의 어느 기관에 발생하는 감염병인가요?", "answer": "호흡기감염병", "scrambled": ["호", "흡", "기", "감", "염", "병", "기", "체"]},
+                {"question": "독감이나 코로나 19는 신체의 어느 기관에 발생하는 감염병인가요?", "answer": "호흡기감염병", "scrambled": ["호", "흡", "기", "감", "염", "병", "기", "체"]}, 
                 {"question": "감염병에 걸렸을 때 학교에 등교를 중지하는 것을 무엇이라고 하나요?", "answer": "등교중지", "scrambled": ["등", "교", "중", "지"]},
                 {"question": "사람들 사이의 거리를 넉넉히 두고, 모임이나 외출을 줄이는 것을 무엇이라고 하나요?", "answer": "사회적 거리두기", "scrambled": ["사", "회", "적", "거", "리", "두", "기", "간"]}
             ];
@@ -341,32 +347,32 @@
             const correctAnswersCountSpan = document.getElementById('correctAnswersCount');
             const wrongAnswersCountSpan = document.getElementById('wrongAnswersCount');
             const allQuestionsList = document.getElementById('allQuestionsList');
-            const restartQuizBtn = document.getElementById('restartQuizBtn');
+            const restartQuizBtn = document.getElementById('restartQuizBtn'); 
             const clearInputBtn = document.getElementById('clearInputBtn');
 
             startButton.addEventListener('click', startGame);
             submitBtn.addEventListener('click', checkAnswer);
             nextBtn.addEventListener('click', loadNextQuestion);
-            restartQuizBtn.addEventListener('click', restartGame);
+            restartQuizBtn.addEventListener('click', restartGame); 
             clearInputBtn.addEventListener('click', clearAnswer);
 
             function startGame() {
                 startScreen.style.display = 'none';
-                finalResultsDiv.style.display = 'none';
+                finalResultsDiv.style.display = 'none'; 
                 quizActive = true;
                 correctCount = 0;
                 wrongCount = 0;
                 currentQuestionIndex = 0;
-
-                submitBtn.style.display = 'inline-block';
-                nextBtn.style.display = 'inline-block';
+                
+                submitBtn.style.display = 'inline-block'; 
+                nextBtn.style.display = 'inline-block'; 
                 clearInputBtn.style.display = 'inline-block';
 
                 loadQuestion();
             }
 
             function restartGame() {
-                startGame();
+                startGame(); 
             }
 
             function loadQuestion() {
@@ -387,14 +393,14 @@
                 nextBtn.disabled = true;
 
                 displayScrambledLetters(currentQuiz.scrambled);
-
+                
                 if (currentQuiz.answer === "사회적 거리두기") {
-                    createAnswerBoxes(8, [3]);
+                    createAnswerBoxes(8, [3]); 
                 } else {
                     createAnswerBoxes(currentQuiz.answer.length);
                 }
-
-                disableControls(false);
+                
+                disableControls(false); 
             }
 
             function createAnswerBoxes(length, disabledIndexes = []) {
@@ -403,12 +409,12 @@
                 for (let i = 0; i < length; i++) {
                     const answerBox = document.createElement('div');
                     answerBox.classList.add('answer-box');
-                    answerBox.dataset.answerBoxIndex = i;
-
+                    answerBox.dataset.answerBoxIndex = i; 
+                    
                     if (disabledIndexes.includes(i)) {
                         answerBox.classList.add('disabled');
-                        answerBox.style.pointerEvents = 'none';
-                        answerBox.textContent = '';
+                        answerBox.style.pointerEvents = 'none'; 
+                        answerBox.textContent = ''; 
                     } else {
                         answerBox.addEventListener('click', () => removeLetter(answerBox));
                     }
@@ -427,7 +433,7 @@
                     const letterBox = document.createElement('div');
                     letterBox.classList.add('letter-box');
                     letterBox.textContent = char;
-                    letterBox.dataset.currentScrambledIndex = index;
+                    letterBox.dataset.currentScrambledIndex = index; 
                     letterBox.addEventListener('click', () => selectLetter(letterBox));
                     scrambledLettersContainer.appendChild(letterBox);
                     scrambledLetterElements.push(letterBox);
@@ -438,13 +444,13 @@
                 if (letterBox.classList.contains('selected')) {
                     return;
                 }
-
+                
                 const availableAnswerBox = answerBoxElements.find(box => !box.textContent && !box.classList.contains('disabled'));
                 if (availableAnswerBox) {
                     availableAnswerBox.textContent = letterBox.textContent;
-                    availableAnswerBox.dataset.scrambledLetterCurrentIndex = letterBox.dataset.currentScrambledIndex;
+                    availableAnswerBox.dataset.scrambledLetterCurrentIndex = letterBox.dataset.currentScrambledIndex; 
                     letterBox.classList.add('selected');
-                    selectedLetters.push(letterBox);
+                    selectedLetters.push(letterBox); 
                     availableAnswerBox.classList.add('filled');
                 }
 
@@ -455,7 +461,7 @@
                     submitBtn.disabled = false;
                     guidanceMessage.textContent = '문제를 풀면 정답확인을 클릭하세요.';
                 } else {
-                    guidanceMessage.textContent = '';
+                    guidanceMessage.textContent = ''; 
                 }
             }
 
@@ -468,7 +474,7 @@
                 if (!char) return;
 
                 const scrambledLetterCurrentIndex = answerBox.dataset.scrambledLetterCurrentIndex;
-                const correspondingScrambledLetter = scrambledLetterElements.find(box =>
+                const correspondingScrambledLetter = scrambledLetterElements.find(box => 
                     box.dataset.currentScrambledIndex === scrambledLetterCurrentIndex && box.classList.contains('selected')
                 );
 
@@ -480,13 +486,13 @@
                 answerBox.classList.remove('filled');
                 delete answerBox.dataset.scrambledLetterCurrentIndex;
 
-                submitBtn.disabled = true;
-                guidanceMessage.textContent = '';
+                submitBtn.disabled = true; 
+                guidanceMessage.textContent = ''; 
             }
 
             function clearAnswer() {
                 answerBoxElements.forEach(box => {
-                    if (!box.classList.contains('disabled')) {
+                    if (!box.classList.contains('disabled')) { 
                         box.textContent = '';
                         box.classList.remove('filled');
                         delete box.dataset.scrambledLetterCurrentIndex;
@@ -497,7 +503,7 @@
                 resultDiv.textContent = '';
                 resultDiv.className = 'result';
                 feedbackMessage.textContent = '';
-                guidanceMessage.textContent = '';
+                guidanceMessage.textContent = ''; 
 
                 submitBtn.disabled = true;
                 nextBtn.disabled = true;
@@ -507,29 +513,29 @@
 
             function checkAnswer() {
                 const userAnswerArray = Array.from(answerInputContainer.children).map(box => {
-                    return box.classList.contains('disabled') ? ' ' : box.textContent;
+                    return box.classList.contains('disabled') ? ' ' : box.textContent; 
                 });
-                const userAnswer = userAnswerArray.join('').replace(/\s/g, '');
-
+                const userAnswer = userAnswerArray.join('').replace(/\s/g, ''); 
+                
                 const correctAnswer = quizData[currentQuestionIndex].answer.replace(/\s/g, '');
 
-                disableControls(true);
+                disableControls(true); 
 
                 if (userAnswer === correctAnswer) {
                     resultDiv.textContent = '정답입니다!';
                     resultDiv.classList.add('correct');
                     document.getElementById('correctSound').play();
-                    correctCount++;
+                    correctCount++; 
                     submitBtn.disabled = true;
-                    nextBtn.disabled = false;
-                    guidanceMessage.textContent = '정답 확인 후 다음 문제를 클릭하세요.';
+                    nextBtn.disabled = false; 
+                    guidanceMessage.textContent = '정답 확인 후 다음 문제를 클릭하세요.'; 
                 } else {
                     resultDiv.textContent = `오답입니다. 정답은 '${quizData[currentQuestionIndex].answer}' 입니다.`;
                     resultDiv.classList.add('wrong');
                     document.getElementById('wrongSound').play();
-                    wrongCount++;
-                    submitBtn.disabled = true;
-                    nextBtn.disabled = false;
+                    wrongCount++; 
+                    submitBtn.disabled = true; 
+                    nextBtn.disabled = false; 
                     guidanceMessage.textContent = '오답입니다. 다음 문제를 클릭하세요.';
                 }
                 feedbackMessage.textContent = '';
@@ -559,8 +565,8 @@
                 answerInputContainer.innerHTML = '';
                 resultDiv.textContent = '퀴즈가 종료되었습니다. 결과를 확인하세요!';
                 resultDiv.className = 'result correct';
-
-                submitBtn.style.display = 'none';
+                
+                submitBtn.style.display = 'none'; 
                 nextBtn.style.display = 'none';
                 clearInputBtn.style.display = 'none';
 
@@ -568,7 +574,7 @@
                 guidanceMessage.textContent = '';
                 quizActive = false;
 
-                finalResultsDiv.style.display = 'block';
+                finalResultsDiv.style.display = 'block'; 
                 totalQuestionsCountSpan.textContent = quizData.length;
                 correctAnswersCountSpan.textContent = correctCount;
                 wrongAnswersCountSpan.textContent = wrongCount;
@@ -578,10 +584,10 @@
                 allQuestionsList.innerHTML = '';
                 quizData.forEach((item, index) => {
                     const listItem = document.createElement('li');
-                    listItem.innerHTML = `<strong>${index + 1}. ${item.question}</strong>`;
+                    listItem.innerHTML = `<strong>${index + 1}. ${item.question}</strong>`; 
                     allQuestionsList.appendChild(listItem);
                 });
-
+                
                 if (restartQuizBtn) {
                     restartQuizBtn.style.display = 'block';
                 }
