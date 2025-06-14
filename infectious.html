@@ -21,18 +21,18 @@
             color: #333;
         }
         .quiz-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Responsive width */
-            /* Original 600px + 4cm (약 151px): 600px + 151px = 751px */
-            max-width: 751px;
-            text-align: center;
-            box-sizing: border-box;
-            position: relative;
-        }
-        h1 {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Responsive width */
+        /* Increased max-width */
+        max-width: 801px;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        
+            h1 {
             color: #2c3e50;
             margin-bottom: 20px;
             font-size: 1.8em;
@@ -252,6 +252,17 @@
         .final-results .wrong-answer {
             color: #dc3545;
         }
+
+        .buttons {
+            white-space: nowrap;
+            flex-wrap: nowrap; /* 버튼이 다음 줄로 넘어가지 않도록 */
+        }
+
+       .buttons button {
+            white-space: nowrap;
+            min-width: max-content; /* 버튼 내부 글자 전체 표현을 위해 */
+       }
+
     </style>
 </head>
 <body>
