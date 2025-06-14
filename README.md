@@ -1,1 +1,1 @@
-디지털 성폭력 Prevention 퀴즈 (4지 선다)
+감염병 Prevention 퀴즈 (흩어진 글자 클릭)
