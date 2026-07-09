@@ -96,11 +96,10 @@
             cursor: pointer;
         }
         .answer-input .answer-box.filled {
-            background-color: #dbeaff; /* 채워진 네모칸의 배경색 */
-            border-color: #92bdfa; /* 채워진 네모칸의 테두리 색 */
+            background-color: #dbeaff;
+            border-color: #92bdfa;
             color: #333;
         }
-        /* 새 CSS: 비활성화된 네모 칸 스타일 */
         .answer-input .answer-box.disabled {
             background-color: #dddddd;
             border-color: #aaaaaa;
@@ -124,11 +123,17 @@
             transition: background-color 0.2s, transform 0.2s;
             outline: none;
         }
+        /* 추가: 비활성화된 버튼 스타일 지정 */
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
         button.submit {
             background-color: #5cb85c;
             color: white;
         }
-        button.submit:hover {
+        button.submit:hover:not(:disabled) {
             background-color: #4cae4c;
             transform: translateY(-1px);
         }
@@ -136,30 +141,27 @@
             background-color: #0275d8;
             color: white;
         }
-        button.next:hover {
+        button.next:hover:not(:disabled) {
             background-color: #025aa5;
             transform: translateY(-1px);
         }
-        /* 새로 추가된 초기화 버튼 스타일 */
         button.clear-input {
-            background-color: #ffc107; /* 주황색 계열 */
+            background-color: #ffc107;
             color: white;
         }
-        button.clear-input:hover {
+        button.clear-input:hover:not(:disabled) {
             background-color: #e0a800;
             transform: translateY(-1px);
         }
-
-        /* 추가된 다시 시작 버튼 스타일 */
         button.restart-quiz {
-            background-color: #6c757d; /* 회색 계열로 변경 */
+            background-color: #6c757d;
             color: white;
-            margin-top: 20px; /* 위쪽 여백 추가 */
-            display: block; /* 블록 요소로 만들어 중앙 정렬 용이하게 함 */
-            margin-left: auto; /* 자동 여백으로 중앙 정렬 */
-            margin-right: auto; /* 자동 여백으로 중앙 정렬 */
-            padding: 15px 30px; /* 버튼 크기 키움 */
-            font-size: 1.2em; /* 폰트 크기 키움 */
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px 30px;
+            font-size: 1.2em;
         }
         button.restart-quiz:hover {
             background-color: #5a6268;
@@ -213,10 +215,10 @@
             min-height: 25px;
         }
         .guidance-message {
-            font-size: 0.9em; /* 작게 설정 */
+            font-size: 0.9em;
             color: #777;
             margin-top: 10px;
-            min-height: 1.2em; /* 문구가 없을 때도 공간 유지 */
+            min-height: 1.2em;
         }
         .final-results {
             margin-top: 30px;
@@ -300,24 +302,34 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const quizData = [
-                // Moved questions from original indices 10, 11, 12 to the beginning (0, 1, 2)
-                {"question": "사람에게 전염되어 병을 옮기는 질병은 ?", "answer": "감염병", "scrambled": ["감", "염", "병", "구", "기"]}, // Originally 11th (index 10)
-                {"question": "인플루엔자 바이러스에 의해 열, 기침, 몸살이 생기고 겨울에 많이 유행하는 감염병은?", "answer": "독감", "scrambled": ["독", "감", "열", "침"]}, // Originally 12th (index 11)
-                {"question": "외출 후 병에 걸리지 않기 위해 꼭 해야 하는 위생 습관은?", "answer": "손씻기", "scrambled": ["손", "씻", "기", "생"]}, // Originally 13th (index 12)
-                
-                // Remaining questions in their original relative order
+                {"question": "외출 후 병에 걸리지 않기 위해 꼭 해야 하는 위생 습관은?", "answer": "손씻기", "scrambled": ["손", "씻", "기", "생"]},
                 {"question": "공기전파가 가능하며, 피부에 발진, 물집이 생기고 가려운 증상이 나타나는 전염성이 높은 감염병은?", "answer": "수두", "scrambled": ["수", "두", "부", "병"]},
-                {"question": "복통, 설사, 메스꺼움, 구토 등이 있는 감염병은 신체 어느 기관에 발생하는 감염병인가요?", "answer": "소화기", "scrambled": ["기", "소", "호","화", "흡"]},
-                {"question": "감염병을 일으키는 세균이나 바이러스 등을 무엇이라고 합니까?", "answer": "병원체", "scrambled": ["병", "원", "체", "독"]},
-                {"question": "병에 걸렸지만 아직 증상이 나타나지 않은 기간을 무엇이라고 합니까?", "answer": "잠복기", "scrambled": ["잠", "복", "기", "간"]},
-                {"question": "감염병에 걸리지 않도록 미리 면역이 생기게 하는 방법은 ?", "answer": "예방접종", "scrambled": ["예", "방", "접", "종"]},
-                {"question": "1일 8번 30초씩 손을 씻자라는 건강 실천 운동 이름은?", "answer": "1830운동", "scrambled": ["운", "1", "0", "동", "8", "3", "손"]}, 
+                
+                // 수정된 부분: 복수 정답 및 띄어쓰기 제어 속성 추가
+                {
+                    "question": "소화기 감염병에서 주로 나타나는 증상 2가지는?", 
+                    "answer": "복통 설사 (또는 설사 복통)", 
+                    "acceptedAnswers": ["복통설사", "설사복통"], 
+                    "scrambled": ["복", "통", "설","사", "배"], 
+                    "boxCount": 5, 
+                    "disabledBoxes": [2]
+                },
+                
+                {"question": "감염병을 일으키는 세균이나 바이러스 등을 무엇이라고 합니까?", "answer": "병원체", "scrambled": ["병", "원", "체", "독","감"]},              
+                {"question": "감염병에 걸리지 않도록 미리 면역이 생기게 하는 방법은 ?", "answer": "예방접종", "scrambled": ["예", "방", "접", "종"]},            
                 {"question": "기침이나 재채기를 할 때 입과 코를 팔 안쪽으로 가리는 것을 무엇이라고 합니까?", "answer": "기침예절", "scrambled": ["예", "침", "기", "절"]},
                 {"question": "감염병이 유행할 때 입과 코를 가리는 데 사용하는 물건은?", "answer": "마스크", "scrambled": ["마", "스", "크", "입", "코"]},
-                {"question": "우리 몸이 병원체를 이겨내는 힘을 무엇이라고 합니까?", "answer": "면역", "scrambled": ["면", "역", "힘", "몸"]},
-                {"question": "독감이나 코로나 19는 신체의 어느 기관에 발생하는 감염병인가요?", "answer": "호흡기감염병", "scrambled": ["호", "흡", "기", "감", "염", "병", "기", "체"]}, 
+                {"question": "우리 몸이 병원체를 이겨내는 힘을 무엇이라고 합니까?", "answer": "면역", "scrambled": ["면", "역", "힘", "몸"]},                
                 {"question": "감염병에 걸렸을 때 학교에 등교를 중지하는 것을 무엇이라고 하나요?", "answer": "등교중지", "scrambled": ["등", "교", "중", "지"]},
-                {"question": "사람들 사이의 거리를 넉넉히 두고, 모임이나 외출을 줄이는 것을 무엇이라고 하나요?", "answer": "사회적 거리두기", "scrambled": ["사", "회", "적", "거", "리", "두", "기", "간"]}
+                
+                // 수정된 부분: 하드코딩 제거 및 속성 기반 띄어쓰기 추가
+                {
+                    "question": "사람들 사이의 거리를 넉넉히 두고, 모임이나 외출을 줄이는 것을 무엇이라고 하나요?", 
+                    "answer": "사회적 거리두기", 
+                    "scrambled": ["사", "회", "적", "거", "리", "두", "기", "간"],
+                    "boxCount": 8,
+                    "disabledBoxes": [3]
+                }
             ];
 
             let currentQuestionIndex = 0;
@@ -327,6 +339,7 @@
             let correctCount = 0;
             let wrongCount = 0;
             let quizActive = false;
+            let isAnswerChecked = false; // 추가: 정답 확인 여부를 추적하는 변수
 
             const questionText = document.getElementById('questionText');
             const scrambledLettersContainer = document.getElementById('scrambledLetters');
@@ -359,6 +372,7 @@
                 correctCount = 0;
                 wrongCount = 0;
                 currentQuestionIndex = 0;
+                isAnswerChecked = false; // 추가
                 
                 submitBtn.style.display = 'inline-block'; 
                 nextBtn.style.display = 'inline-block'; 
@@ -377,6 +391,9 @@
                     return;
                 }
 
+                isAnswerChecked = false; // 추가: 새 문제마다 상태 초기화
+                clearInputBtn.disabled = false; // 추가: 다시풀기 버튼 활성화
+
                 const currentQuiz = quizData[currentQuestionIndex];
                 questionText.textContent = currentQuiz.question;
                 resultDiv.textContent = '';
@@ -390,11 +407,10 @@
 
                 displayScrambledLetters(currentQuiz.scrambled);
                 
-                if (currentQuiz.answer === "사회적 거리두기") {
-                    createAnswerBoxes(8, [3]); 
-                } else {
-                    createAnswerBoxes(currentQuiz.answer.length);
-                }
+                // 데이터 속성에 기반하여 유연하게 네모칸 및 띄어쓰기 생성
+                const boxCount = currentQuiz.boxCount || currentQuiz.answer.length;
+                const disabledBoxes = currentQuiz.disabledBoxes || [];
+                createAnswerBoxes(boxCount, disabledBoxes);
                 
                 disableControls(false); 
             }
@@ -487,6 +503,8 @@
             }
 
             function clearAnswer() {
+                if (isAnswerChecked) return; // 추가: 이미 정답을 확인한 후에는 다시풀기 방지
+
                 answerBoxElements.forEach(box => {
                     if (!box.classList.contains('disabled')) { 
                         box.textContent = '';
@@ -508,16 +526,30 @@
             }
 
             function checkAnswer() {
+                if (isAnswerChecked) return; // 추가: 이미 체크했다면 점수가 다시 오르지 않도록 방지
+
+                const currentQuiz = quizData[currentQuestionIndex];
+                
                 const userAnswerArray = Array.from(answerInputContainer.children).map(box => {
                     return box.classList.contains('disabled') ? ' ' : box.textContent; 
                 });
+                
+                // 공백을 제거하고 제출된 단어 조합 추출
                 const userAnswer = userAnswerArray.join('').replace(/\s/g, ''); 
                 
-                const correctAnswer = quizData[currentQuestionIndex].answer.replace(/\s/g, '');
+                let isCorrect = false;
+                
+                // acceptedAnswers(복수 정답)가 정의되어 있다면 배열 안에서 확인, 없다면 기본 정답과 비교
+                if (currentQuiz.acceptedAnswers) {
+                    isCorrect = currentQuiz.acceptedAnswers.includes(userAnswer);
+                } else {
+                    const correctAnswer = currentQuiz.answer.replace(/\s/g, '');
+                    isCorrect = (userAnswer === correctAnswer);
+                }
 
                 disableControls(true); 
 
-                if (userAnswer === correctAnswer) {
+                if (isCorrect) {
                     resultDiv.textContent = '정답입니다!';
                     resultDiv.classList.add('correct');
                     document.getElementById('correctSound').play();
@@ -526,7 +558,7 @@
                     nextBtn.disabled = false; 
                     guidanceMessage.textContent = '정답 확인 후 다음 문제를 클릭하세요.'; 
                 } else {
-                    resultDiv.textContent = `오답입니다. 정답은 '${quizData[currentQuestionIndex].answer}' 입니다.`;
+                    resultDiv.textContent = `오답입니다. 정답은 '${currentQuiz.answer}' 입니다.`;
                     resultDiv.classList.add('wrong');
                     document.getElementById('wrongSound').play();
                     wrongCount++; 
@@ -534,6 +566,9 @@
                     nextBtn.disabled = false; 
                     guidanceMessage.textContent = '오답입니다. 다음 문제를 클릭하세요.';
                 }
+                
+                isAnswerChecked = true; // 추가: 문제 풀이 완료 상태로 변경
+                clearInputBtn.disabled = true; // 추가: 정답을 확인한 후에는 다시풀기 버튼 비활성화
                 feedbackMessage.textContent = '';
             }
 
